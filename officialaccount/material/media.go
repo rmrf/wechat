@@ -22,9 +22,9 @@ const (
 )
 
 const (
-	mediaUploadURL      = "https://api.weixin.qq.com/cgi-bin/media/upload"
-	mediaUploadImageURL = "https://api.weixin.qq.com/cgi-bin/media/uploadimg"
-	mediaGetURL         = "https://api.weixin.qq.com/cgi-bin/media/get"
+	mediaUploadURL      = "http://api.weixin.qq.com/cgi-bin/media/upload"
+	mediaUploadImageURL = "http://api.weixin.qq.com/cgi-bin/media/uploadimg"
+	mediaGetURL         = "http://api.weixin.qq.com/cgi-bin/media/get"
 )
 
 // Media 临时素材上传返回信息
@@ -39,13 +39,8 @@ type Media struct {
 
 // MediaUpload 临时素材上传
 func (material *Material) MediaUpload(mediaType MediaType, filename string) (media Media, err error) {
-	var accessToken string
-	accessToken, err = material.GetAccessToken()
-	if err != nil {
-		return
-	}
 
-	uri := fmt.Sprintf("%s?access_token=%s&type=%s", mediaUploadURL, accessToken, mediaType)
+	uri := fmt.Sprintf("%s?type=%s", mediaUploadURL, mediaType)
 	var response []byte
 	response, err = util.PostFile("media", filename, uri)
 	if err != nil {
@@ -65,12 +60,7 @@ func (material *Material) MediaUpload(mediaType MediaType, filename string) (med
 // GetMediaURL 返回临时素材的下载地址供用户自己处理
 // NOTICE: URL 不可公开，因为含access_token 需要立即另存文件
 func (material *Material) GetMediaURL(mediaID string) (mediaURL string, err error) {
-	var accessToken string
-	accessToken, err = material.GetAccessToken()
-	if err != nil {
-		return
-	}
-	mediaURL = fmt.Sprintf("%s?access_token=%s&media_id=%s", mediaGetURL, accessToken, mediaID)
+	mediaURL = fmt.Sprintf("%s?media_id=%s", mediaGetURL, mediaID)
 	return
 }
 
