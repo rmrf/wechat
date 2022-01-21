@@ -21,7 +21,9 @@ wcTcb := wc.GetTcb()
 ```
 
 ### 举例
+
 #### 触发云函数
+
 ```golang
 res, err := wcTcb.InvokeCloudFunction("test-xxxx", "add", `{"a":1,"b":2}`)
 if err != nil {
@@ -29,4 +31,4 @@ if err != nil {
 }
 ```
 
-更多使用方法参考[PKG.DEV](https://pkg.go.dev/github.com/silenceper/wechat/v2/miniprogram/tcb)
+更多使用方法参考[PKG.DEV](https://pkg.go.dev/github.com/rmrf/wechat/v2/miniprogram/tcb)

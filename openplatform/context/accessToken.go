@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/silenceper/wechat/v2/util"
+	"github.com/rmrf/wechat/v2/util"
 )
 
 const (

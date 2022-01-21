@@ -3,8 +3,8 @@ package urllink
 import (
 	"fmt"
 
-	"github.com/silenceper/wechat/v2/miniprogram/context"
-	"github.com/silenceper/wechat/v2/util"
+	"github.com/rmrf/wechat/v2/miniprogram/context"
+	"github.com/rmrf/wechat/v2/util"
 )
 
 // URLLink 小程序 URL Link
