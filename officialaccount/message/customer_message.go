@@ -155,12 +155,12 @@ type MediaMiniprogrampage struct {
 
 // Send 发送客服消息
 func (manager *Manager) Send(msg *CustomerMessage) error {
-	accessToken, err := manager.Context.GetAccessToken()
-	if err != nil {
-		return err
-	}
-	uri := fmt.Sprintf("%s?access_token=%s", customerSendMessage, accessToken)
-	response, err := util.PostJSON(uri, msg)
+	//accessToken, err := manager.Context.GetAccessToken()
+	//if err != nil {
+	//return err
+	//}
+	//uri := fmt.Sprintf("%s?access_token=%s", customerSendMessage, accessToken)
+	response, err := util.PostJSON(customerSendMessage, msg)
 	if err != nil {
 		return err
 	}
