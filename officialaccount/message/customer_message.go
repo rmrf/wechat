@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	customerSendMessage = "https://api.weixin.qq.com/cgi-bin/message/custom/send"
+	customerSendMessage = "http://api.weixin.qq.com/cgi-bin/message/custom/send"
 )
 
 // Manager 消息管理者，可以发送消息
